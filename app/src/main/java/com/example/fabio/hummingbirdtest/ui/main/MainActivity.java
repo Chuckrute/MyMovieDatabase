@@ -18,18 +18,18 @@ import dagger.android.AndroidInjector;
 
 public class MainActivity extends AppCompatActivity implements MoviesContract.view{
 
-    //
-    // @Inject MoviesContract.UserActionsListener mPresenter;
+
+    //@Inject MoviesContract.UserActionsListener mPresenter;
 
     private MoviesRecyclerViewAdapter adapter;
     private RecyclerView rvMovies;
+    public String someId ="id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
     }
 

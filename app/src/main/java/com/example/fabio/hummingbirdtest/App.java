@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 
 
+import com.example.fabio.hummingbirdtest.dagger.DaggerAppComponent;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -22,10 +24,10 @@ public class App extends
     @Override
     public void onCreate() {
         super.onCreate();
-//        DaggerAppComponent.builder()
-//                .application((App)this)
-//                .build()
-//                .inject(this);
+        DaggerAppComponent.builder()
+                .application((App)this)
+                .build()
+                .inject(this);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.fabio.hummingbirdtest.ui.main;
 
+import javax.inject.Named;
+
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -13,5 +15,9 @@ public abstract class MoviesModule {
 
     @Binds
     abstract MainActivity provideMainActivity(MainActivity mainActivity);
+
+    @Provides @Named("someId") static String provideSomeId(MainActivity mainActivity) {
+        return mainActivity.someId;
+    }
 
 }
