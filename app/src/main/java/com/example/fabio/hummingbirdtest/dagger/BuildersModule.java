@@ -2,6 +2,7 @@ package com.example.fabio.hummingbirdtest.dagger;
 
 import android.app.Activity;
 
+import com.example.fabio.hummingbirdtest.ui.main.AppSubComponent;
 import com.example.fabio.hummingbirdtest.ui.main.MainActivity;
 
 import dagger.Binds;

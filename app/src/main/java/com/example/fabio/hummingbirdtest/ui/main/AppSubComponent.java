@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest.dagger;
+package com.example.fabio.hummingbirdtest.ui.main;
 
 import com.example.fabio.hummingbirdtest.ui.main.MainActivity;
 import com.example.fabio.hummingbirdtest.ui.main.MoviesModule;
@@ -15,4 +15,6 @@ public interface AppSubComponent extends AndroidInjector<MainActivity> {
     @Subcomponent.Builder
     abstract class Builder extends AndroidInjector.Builder<MainActivity> {
     }
+
+    void inject(MoviesContract.view view);
 }
