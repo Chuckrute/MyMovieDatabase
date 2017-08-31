@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest.ui;
+package com.example.fabio.hummingbirdtest.ui.main;
 
 import javax.inject.Inject;
 
@@ -7,9 +7,11 @@ import javax.inject.Inject;
  */
 
 public class MoviesPresenter implements MoviesContract.UserActionsListener{
+    private MoviesContract.view view;
 
-    public MoviesPresenter(MoviesContract.view activity) {
-
+    @Inject
+    public MoviesPresenter(MoviesContract.view view) {
+        this.view = view;
     }
 
     @Override

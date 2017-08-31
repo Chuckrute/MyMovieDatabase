@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest.ui;
+package com.example.fabio.hummingbirdtest.ui.main;
 
 import com.example.fabio.hummingbirdtest.data.Movie;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public interface MoviesContract {
 
     interface view{
-        void showMovieList(List<Movie> movie);
+        void showMovieList(List<Movie> movies);
     }
 
     interface UserActionsListener{
