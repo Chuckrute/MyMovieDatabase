@@ -24,4 +24,5 @@ task clean(type: Delete) {
 
 ext{
     supportLibraryVersion = '25.3.1'
+    daggerVersion = '2.10'
 }

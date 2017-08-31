@@ -1,0 +1,64 @@
+package com.example.fabio.hummingbirdtest.apis;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+import rx.Observable;
+import rx.schedulers.Schedulers;
+
+/**
+ * Created by EUROCOM on 30/08/2017.
+ */
+
+public class MoviesRequestsApi implements IMoviesRequestsApi{
+    private static Gson gson;
+    private static EndPoints endPoints;
+    public static Retrofit retrofit = null;
+    public static final String BASE_URL = "https://api.themoviedb.org/3/search/";
+    public static final String API_KEY = "d9b919d2a956a8db41c97f533abf5443";
+
+    @Override
+    public Observable<String> getMoviesByPopularity(int index) {
+        return endPoints.getMoviesByPopularity(API_KEY, Locale.getDefault().getDisplayLanguage(),index);
+    }
+
+    @Override
+    public Observable<String> getMoviesByName(String name) {
+        return endPoints.getMoviesByName(API_KEY, name);
+    }
+
+    public MoviesRequestsApi(){
+        if(gson == null) {
+
+            RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(rxAdapter)
+                    .build();
+        }
+        if(endPoints == null) {
+            endPoints = retrofit.create(EndPoints.class);
+        }
+    }
+
+    public interface EndPoints {
+
+        @GET("movie/popular")
+        Observable<String> getMoviesByPopularity(@Query("api_key") String key, @Query("language") String language, @Query("page") int page);
+
+        @GET("movie")
+        Observable<String> getMoviesByName(@Query("api_key") String key, @Query("query") String query);
+
+    }
+}
