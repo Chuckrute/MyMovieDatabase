@@ -12,6 +12,6 @@ import dagger.Provides;
 public abstract class MoviesModule {
 
     @Binds
-    abstract MainActivity provideFeatureView(MainActivity mainActivity);
+    abstract MainActivity provideMainActivity(MainActivity mainActivity);
 
 }

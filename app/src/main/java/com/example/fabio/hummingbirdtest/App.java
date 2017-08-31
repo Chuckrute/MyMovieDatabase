@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 
 
-import com.example.fabio.hummingbirdtest.dagger.DaggerAppComponent;
-
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -17,17 +15,17 @@ import dagger.android.HasDispatchingActivityInjector;
  * Created by EUROCOM on 30/08/2017.
  */
 
-public class CustomApplication extends
+public class App extends
         Application implements HasDispatchingActivityInjector {
     @Inject DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerAppComponent.builder()
-                .application(this)
-                .build()
-                .inject(this);
+//        DaggerAppComponent.builder()
+//                .application((App)this)
+//                .build()
+//                .inject(this);
     }
 
     @Override

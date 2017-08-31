@@ -9,7 +9,7 @@ import javax.inject.Inject;
 public class MoviesPresenter implements MoviesContract.UserActionsListener{
     private MoviesContract.view view;
 
-    @Inject
+    //@Inject
     public MoviesPresenter(MoviesContract.view view) {
         this.view = view;
     }

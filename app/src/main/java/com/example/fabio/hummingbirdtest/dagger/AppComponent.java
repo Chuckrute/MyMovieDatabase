@@ -1,10 +1,7 @@
 package com.example.fabio.hummingbirdtest.dagger;
 
 
-import android.app.Application;
-
-import com.example.fabio.hummingbirdtest.CustomApplication;
-import com.example.fabio.hummingbirdtest.ui.main.MainActivity;
+import com.example.fabio.hummingbirdtest.App;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -23,10 +20,10 @@ public interface AppComponent {
     @Component.Builder
     interface Builder {
 
-        @BindsInstance Builder application(Application application);
+        @BindsInstance Builder application(App application);
         AppComponent build();
     }
-    void inject(Application app);
+    void inject(App app);
 }
 
 

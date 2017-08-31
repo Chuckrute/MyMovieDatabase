@@ -12,10 +12,9 @@ import dagger.android.AndroidInjector;
 
 @Subcomponent(modules = { MoviesModule.class })
 public interface AppSubComponent extends AndroidInjector<MainActivity> {
-    
+
     @Subcomponent.Builder
     abstract class Builder extends AndroidInjector.Builder<MainActivity> {
     }
-
     void inject(MainActivity view);
 }

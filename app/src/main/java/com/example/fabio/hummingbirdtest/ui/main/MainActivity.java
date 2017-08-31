@@ -18,7 +18,8 @@ import dagger.android.AndroidInjector;
 
 public class MainActivity extends AppCompatActivity implements MoviesContract.view{
 
-    @Inject MoviesContract.UserActionsListener mPresenter;
+    //
+    // @Inject MoviesContract.UserActionsListener mPresenter;
 
     private MoviesRecyclerViewAdapter adapter;
     private RecyclerView rvMovies;

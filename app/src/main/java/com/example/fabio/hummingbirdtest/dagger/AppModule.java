@@ -3,7 +3,6 @@ package com.example.fabio.hummingbirdtest.dagger;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.fabio.hummingbirdtest.CustomApplication;
 import com.example.fabio.hummingbirdtest.ui.main.AppSubComponent;
 
 import dagger.Module;
