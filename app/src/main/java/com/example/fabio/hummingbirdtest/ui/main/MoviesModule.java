@@ -1,5 +1,6 @@
 package com.example.fabio.hummingbirdtest.ui.main;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
@@ -10,9 +11,7 @@ import dagger.Provides;
 @Module
 public abstract class MoviesModule {
 
-    @Provides
-    MoviesPresenter provideMoviesPresenter(MoviesContract.view view){
-        return new MoviesPresenter(view);
-    }
+    @Binds
+    abstract MainActivity provideFeatureView(MainActivity mainActivity);
 
 }

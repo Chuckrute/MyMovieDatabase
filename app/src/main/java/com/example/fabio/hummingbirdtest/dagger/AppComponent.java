@@ -4,6 +4,7 @@ package com.example.fabio.hummingbirdtest.dagger;
 import android.app.Application;
 
 import com.example.fabio.hummingbirdtest.CustomApplication;
+import com.example.fabio.hummingbirdtest.ui.main.MainActivity;
 
 import dagger.BindsInstance;
 import dagger.Component;
