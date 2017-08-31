@@ -11,13 +11,12 @@ import dagger.Provides;
 /**
  * Created by EUROCOM on 30/08/2017.
  */
-@Module(subcomponents = { AppSubComponent.class})
+@Module(subcomponents = {AppSubComponent.class})
 public class AppModule {
 
     @Provides
     Context provideContext(Application application) {
         return application.getApplicationContext();
     }
-
 
 }

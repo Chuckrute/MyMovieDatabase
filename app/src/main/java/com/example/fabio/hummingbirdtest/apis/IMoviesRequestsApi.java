@@ -1,5 +1,10 @@
 package com.example.fabio.hummingbirdtest.apis;
 
+import com.example.fabio.hummingbirdtest.data.Movie;
+import com.example.fabio.hummingbirdtest.data.MovieResults;
+
+import java.util.ArrayList;
+
 import rx.Observable;
 
 /**
@@ -8,6 +13,7 @@ import rx.Observable;
 
 public interface IMoviesRequestsApi {
 
-    public Observable<String> getMoviesByPopularity(int index);
-    public Observable<String> getMoviesByName(String name);
+    public Observable<MovieResults> getMoviesByPopularity(int index);
+
+    Observable<MovieResults> getMoviesByName(String name, int index);
 }

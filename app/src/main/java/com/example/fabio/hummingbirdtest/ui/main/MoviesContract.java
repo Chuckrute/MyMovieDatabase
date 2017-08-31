@@ -12,10 +12,15 @@ public interface MoviesContract {
 
     interface view{
         void showMovieList(List<Movie> movies);
+
+        public void makeFailureDialogBox();
+
+        public void showLoadingDialog();
+        public void hideLoadingDialog();
     }
 
     interface UserActionsListener{
-        void findMoviesByPupularity();
-        void findMoviesByKeyword( String movieName);
+        void findMoviesByPopularity(int index);
+        void findMoviesByKeyword(String movieName, int index);
     }
 }

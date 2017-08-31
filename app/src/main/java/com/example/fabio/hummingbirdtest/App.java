@@ -3,7 +3,6 @@ package com.example.fabio.hummingbirdtest;
 import android.app.Activity;
 import android.app.Application;
 
-
 import com.example.fabio.hummingbirdtest.dagger.DaggerAppComponent;
 
 import javax.inject.Inject;

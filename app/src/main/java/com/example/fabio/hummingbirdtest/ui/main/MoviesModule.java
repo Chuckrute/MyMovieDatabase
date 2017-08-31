@@ -13,11 +13,8 @@ import dagger.Provides;
 @Module
 public abstract class MoviesModule {
 
-    @Binds
-    abstract MainActivity provideMainActivity(MainActivity mainActivity);
-
-    @Provides @Named("someId") static String provideSomeId(MainActivity mainActivity) {
-        return mainActivity.someId;
-    }
+    @Provides MoviesPresenter provideMoviesPresenter(MainActivity mainActivity){
+        return new MoviesPresenter(mainActivity);
+    };
 
 }
