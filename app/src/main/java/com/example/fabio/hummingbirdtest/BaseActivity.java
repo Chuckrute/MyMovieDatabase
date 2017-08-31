@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +28,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         ctx = this;
     }
 
-
-
     public void makeFailureDialogBox() {
 
         final Dialog dialog = new Dialog(ctx);
@@ -38,14 +35,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.ok_dialog);
 
         TextView text = (TextView) dialog.findViewById(R.id.tvDescription);
-        text.setText(getString(R.string.operationFailed));
+
+        text.setText(getString(R.string.noConectivity));
+
 
         Button dialogButton = (Button) dialog.findViewById(R.id.btOK);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                finish();
             }
         });
 
@@ -93,7 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    public void makeFailureToast(int messageId) {
-        Toast.makeText(this,getText(messageId),Toast.LENGTH_LONG).show();
+    public void makeFailureToast() {
+        Toast.makeText(this,getText(R.string.noConectivity),Toast.LENGTH_SHORT).show();
     }
 }

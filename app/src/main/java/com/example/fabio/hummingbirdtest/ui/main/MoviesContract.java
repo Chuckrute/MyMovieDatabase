@@ -1,5 +1,6 @@
 package com.example.fabio.hummingbirdtest.ui.main;
 
+import com.example.fabio.hummingbirdtest.BaseActivity;
 import com.example.fabio.hummingbirdtest.data.Movie;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public interface MoviesContract {
 
         public void showLoadingDialog();
         public void hideLoadingDialog();
+
+        void makeFailureToast();
     }
 
     interface UserActionsListener{

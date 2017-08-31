@@ -2,11 +2,14 @@ package com.example.fabio.hummingbirdtest.ui.main;
 
 import android.util.Log;
 
+import com.example.fabio.hummingbirdtest.BaseActivity;
+import com.example.fabio.hummingbirdtest.R;
 import com.example.fabio.hummingbirdtest.apis.IMoviesRequestsApi;
 import com.example.fabio.hummingbirdtest.apis.MoviesRequestsApi;
 import com.example.fabio.hummingbirdtest.data.Movie;
 import com.example.fabio.hummingbirdtest.data.MovieResults;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,9 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
                 }
                 @Override
                 public void onError(Throwable e) {
-                    view.makeFailureDialogBox();
+                    if(e instanceof IOException){
+                        view.makeFailureDialogBox();
+                    }
                 }
 
                 @Override
@@ -91,7 +96,9 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
                     }
                     @Override
                     public void onError(Throwable e) {
-                        view.makeFailureDialogBox();
+                        if(e instanceof IOException) {
+                            view.makeFailureToast();
+                        }
                     }
 
                     @Override

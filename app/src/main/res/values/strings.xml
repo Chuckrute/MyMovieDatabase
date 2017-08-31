@@ -4,4 +4,5 @@
     <string name="operationFailed">Operaçao falou, tente novamente.</string>
     <string name="operationSucceeded">Sucesso!</string>
     <string name="findMovieTitle">Insira O Nome do Filme Desejado Aqui</string>
+    <string name="noConectivity">Sem Conexão Tente novamente mais tarde.</string>
 </resources>
