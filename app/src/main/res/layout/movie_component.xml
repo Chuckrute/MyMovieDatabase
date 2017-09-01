@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    tools:context="com.example.fabio.hummingbirdtest.ui.main.MainActivity"
+    tools:context="com.example.fabio.mymoviedatabase.ui.main.MainActivity"
     android:orientation="vertical">
 
     <LinearLayout

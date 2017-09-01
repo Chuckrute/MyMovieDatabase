@@ -1,11 +1,10 @@
-package com.example.fabio.hummingbirdtest.data;
+package com.example.fabio.mymoviedatabase.data;
 
 /**
  * Created by EUROCOM on 29/08/2017.
  */
 
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

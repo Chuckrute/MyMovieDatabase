@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/gradient"
-    tools:context="com.example.fabio.hummingbirdtest.ui.main.MainActivity">
+    tools:context="com.example.fabio.mymoviedatabase.ui.main.MainActivity">
 
     <EditText
         android:id="@+id/etMovieName"

@@ -1,9 +1,6 @@
-package com.example.fabio.hummingbirdtest.apis;
+package com.example.fabio.mymoviedatabase.apis;
 
-import com.example.fabio.hummingbirdtest.data.Movie;
-import com.example.fabio.hummingbirdtest.data.MovieResults;
-
-import java.util.ArrayList;
+import com.example.fabio.mymoviedatabase.data.MovieResults;
 
 import rx.Observable;
 

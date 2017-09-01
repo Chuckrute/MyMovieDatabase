@@ -1,9 +1,9 @@
-package com.example.fabio.hummingbirdtest.dagger;
+package com.example.fabio.mymoviedatabase.dagger;
 
 import android.content.Context;
 
-import com.example.fabio.hummingbirdtest.apis.IMoviesRequestsApi;
-import com.example.fabio.hummingbirdtest.apis.MoviesRequestsApi;
+import com.example.fabio.mymoviedatabase.apis.IMoviesRequestsApi;
+import com.example.fabio.mymoviedatabase.apis.MoviesRequestsApi;
 
 import dagger.Module;
 import dagger.Provides;

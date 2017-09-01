@@ -1,6 +1,6 @@
-package com.example.fabio.hummingbirdtest.apis;
+package com.example.fabio.mymoviedatabase.apis;
 
-import com.example.fabio.hummingbirdtest.data.MovieResults;
+import com.example.fabio.mymoviedatabase.data.MovieResults;
 import com.google.gson.Gson;
 
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest.ui.main;
+package com.example.fabio.mymoviedatabase.ui.main;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,13 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fabio.hummingbirdtest.R;
-import com.example.fabio.hummingbirdtest.data.Movie;
+import com.example.fabio.mymoviedatabase.R;
+import com.example.fabio.mymoviedatabase.data.Movie;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
