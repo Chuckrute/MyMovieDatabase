@@ -1,11 +1,8 @@
-package com.example.fabio.hummingbirdtest.ui.main.di;
+package com.example.fabio.mymoviedatabase.ui.main.di;
 
-import com.example.fabio.hummingbirdtest.ui.main.MoviesContract;
-import com.example.fabio.hummingbirdtest.ui.main.MoviesPresenter;
+import com.example.fabio.mymoviedatabase.ui.main.MoviesContract;
+import com.example.fabio.mymoviedatabase.ui.main.MoviesPresenter;
 
-import javax.inject.Named;
-
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 

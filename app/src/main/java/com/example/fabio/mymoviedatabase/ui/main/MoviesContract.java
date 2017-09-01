@@ -1,13 +1,8 @@
-package com.example.fabio.hummingbirdtest.ui.main;
+package com.example.fabio.mymoviedatabase.ui.main;
 
-import com.example.fabio.hummingbirdtest.BaseActivity;
-import com.example.fabio.hummingbirdtest.data.Movie;
+import com.example.fabio.mymoviedatabase.data.Movie;
 
 import java.util.List;
-
-import javax.inject.Inject;
-
-import dagger.Provides;
 
 /**
  * Created by EUROCOM on 29/08/2017.

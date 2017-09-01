@@ -1,6 +1,6 @@
-package com.example.fabio.hummingbirdtest.ui.main.di;
+package com.example.fabio.mymoviedatabase.ui.main.di;
 
-import com.example.fabio.hummingbirdtest.ui.main.MainActivity;
+import com.example.fabio.mymoviedatabase.ui.main.MainActivity;
 
 import dagger.Subcomponent;
 

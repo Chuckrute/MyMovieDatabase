@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest;
+package com.example.fabio.mymoviedatabase;
 
 import org.junit.Test;
 

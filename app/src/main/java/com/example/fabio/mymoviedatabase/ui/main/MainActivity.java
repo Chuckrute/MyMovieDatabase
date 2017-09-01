@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest.ui.main;
+package com.example.fabio.mymoviedatabase.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,11 +8,11 @@ import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.EditText;
 
-import com.example.fabio.hummingbirdtest.App;
-import com.example.fabio.hummingbirdtest.BaseActivity;
-import com.example.fabio.hummingbirdtest.R;
-import com.example.fabio.hummingbirdtest.data.Movie;
-import com.example.fabio.hummingbirdtest.ui.main.di.MoviesModule;
+import com.example.fabio.mymoviedatabase.App;
+import com.example.fabio.mymoviedatabase.BaseActivity;
+import com.example.fabio.mymoviedatabase.R;
+import com.example.fabio.mymoviedatabase.data.Movie;
+import com.example.fabio.mymoviedatabase.ui.main.di.MoviesModule;
 
 import java.util.ArrayList;
 import java.util.List;

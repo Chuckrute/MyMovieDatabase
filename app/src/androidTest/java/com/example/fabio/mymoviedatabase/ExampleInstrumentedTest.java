@@ -1,4 +1,4 @@
-package com.example.fabio.hummingbirdtest;
+package com.example.fabio.mymoviedatabase;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.fabio.hummingbirdtest", appContext.getPackageName());
+        assertEquals("com.example.fabio.mymoviedatabase", appContext.getPackageName());
     }
 }

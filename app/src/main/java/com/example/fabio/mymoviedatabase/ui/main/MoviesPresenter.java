@@ -1,14 +1,11 @@
-package com.example.fabio.hummingbirdtest.ui.main;
+package com.example.fabio.mymoviedatabase.ui.main;
 
 import android.util.Log;
 
-import com.example.fabio.hummingbirdtest.App;
-import com.example.fabio.hummingbirdtest.BaseActivity;
-import com.example.fabio.hummingbirdtest.R;
-import com.example.fabio.hummingbirdtest.apis.IMoviesRequestsApi;
-import com.example.fabio.hummingbirdtest.apis.MoviesRequestsApi;
-import com.example.fabio.hummingbirdtest.data.Movie;
-import com.example.fabio.hummingbirdtest.data.MovieResults;
+import com.example.fabio.mymoviedatabase.App;
+import com.example.fabio.mymoviedatabase.apis.IMoviesRequestsApi;
+import com.example.fabio.mymoviedatabase.data.Movie;
+import com.example.fabio.mymoviedatabase.data.MovieResults;
 
 import java.io.IOException;
 import java.util.ArrayList;
