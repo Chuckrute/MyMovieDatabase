@@ -17,10 +17,10 @@ import dagger.multibindings.IntoMap;
 
 @Module
 public abstract class BuildersModule {
+
     @Binds
     @IntoMap
     @ActivityKey(MainActivity.class)
-    abstract AndroidInjector.Factory<? extends Activity> bindMainActivityInjectorFactory(AppSubComponent.Builder builder);
-
+    abstract AndroidInjector.Factory<? extends Activity> bindMainActivity(AppSubComponent.Builder builder);
     // Add another builder binding here
 }

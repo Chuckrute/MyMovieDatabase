@@ -15,11 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjection;
 
 
 public class MainActivity extends BaseActivity implements MoviesContract.view{
 
+    @Inject
     MoviesContract.UserActionsListener mPresenter;
 
     private MoviesRecyclerViewAdapter adapter;
@@ -35,6 +38,7 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
+
         rvMovies.setHasFixedSize(true);
         adapter = new MoviesRecyclerViewAdapter(this, new ArrayList<Movie>(), this);
         rvMovies.setAdapter(adapter);
@@ -62,9 +66,8 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
             }
         });
 
-        mPresenter = new MoviesPresenter(this);
+//        mPresenter = new MoviesPresenter(this);
         mPresenter.findMoviesByPopularity(1);
-
 
     }
 

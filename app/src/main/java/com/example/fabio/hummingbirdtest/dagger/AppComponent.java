@@ -2,6 +2,7 @@ package com.example.fabio.hummingbirdtest.dagger;
 
 
 import com.example.fabio.hummingbirdtest.App;
+import com.example.fabio.hummingbirdtest.ui.main.MoviesContract;
 
 import dagger.BindsInstance;
 import dagger.Component;

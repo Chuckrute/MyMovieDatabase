@@ -13,7 +13,8 @@ import dagger.Provides;
 @Module
 public abstract class MoviesModule {
 
-    @Provides MoviesPresenter provideMoviesPresenter(MainActivity mainActivity){
+
+    @Provides MoviesContract.UserActionsListener provideMoviesPresenter(MoviesContract.view mainActivity){
         return new MoviesPresenter(mainActivity);
     };
 
