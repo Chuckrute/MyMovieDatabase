@@ -19,9 +19,6 @@ public interface MoviesContract {
         void showMovieList(List<Movie> movies);
         public void makeFailureDialogBox();
 
-        public void showLoadingDialog();
-        public void hideLoadingDialog();
-
         void makeFailureToast();
     }
 

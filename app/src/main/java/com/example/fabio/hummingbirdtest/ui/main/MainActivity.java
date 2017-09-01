@@ -5,20 +5,19 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.WindowManager;
 import android.widget.EditText;
 
+import com.example.fabio.hummingbirdtest.App;
 import com.example.fabio.hummingbirdtest.BaseActivity;
 import com.example.fabio.hummingbirdtest.R;
 import com.example.fabio.hummingbirdtest.data.Movie;
+import com.example.fabio.hummingbirdtest.ui.main.di.MoviesModule;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.inject.Inject;
-
-import dagger.android.AndroidInjection;
-
 
 public class MainActivity extends BaseActivity implements MoviesContract.view{
 
@@ -34,9 +33,13 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        App.component.movieModule(new MoviesModule(this)).inject(this);
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
 
         rvMovies.setHasFixedSize(true);
@@ -65,10 +68,7 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
                 mPresenter.findMoviesByKeyword(s.toString(), listPage);
             }
         });
-
-//        mPresenter = new MoviesPresenter(this);
         mPresenter.findMoviesByPopularity(1);
-
     }
 
     @Override
