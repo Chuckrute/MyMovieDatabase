@@ -1,30 +1,24 @@
 package com.example.fabio.hummingbirdtest.dagger;
 
 
-import com.example.fabio.hummingbirdtest.App;
-import com.example.fabio.hummingbirdtest.ui.main.MoviesContract;
+import com.example.fabio.hummingbirdtest.ui.main.di.AppSubComponent;
+import com.example.fabio.hummingbirdtest.ui.main.di.MoviesModule;
+import com.example.fabio.hummingbirdtest.ui.main.MoviesPresenter;
 
-import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Created by EUROCOM on 30/08/2017.
  */
 
 @Component(modules = {
-        AndroidSupportInjectionModule.class,
-        AppModule.class,
-        BuildersModule.class })
+        AppModule.class })
 public interface AppComponent {
 
-    @Component.Builder
-    interface Builder {
+    public void inject(MoviesPresenter moviesPresenter);
 
-        @BindsInstance Builder application(App application);
-        AppComponent build();
-    }
-    void inject(App app);
+    public AppSubComponent movieModule(MoviesModule moviesModule);
+
 }
 
 

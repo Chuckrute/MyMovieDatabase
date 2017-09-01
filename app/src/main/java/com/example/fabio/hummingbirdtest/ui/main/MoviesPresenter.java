@@ -2,6 +2,7 @@ package com.example.fabio.hummingbirdtest.ui.main;
 
 import android.util.Log;
 
+import com.example.fabio.hummingbirdtest.App;
 import com.example.fabio.hummingbirdtest.BaseActivity;
 import com.example.fabio.hummingbirdtest.R;
 import com.example.fabio.hummingbirdtest.apis.IMoviesRequestsApi;
@@ -25,15 +26,19 @@ import rx.schedulers.Schedulers;
  */
 
 public class MoviesPresenter implements MoviesContract.UserActionsListener{
+
     private MoviesContract.view view;
-    private IMoviesRequestsApi mRequestsApi;
+    @Inject public IMoviesRequestsApi mRequestsApi;
     private Subscription subscription;
     private List<Movie> displayedMovies;
 
     public MoviesPresenter(MoviesContract.view view) {
         this.view = view;
-        mRequestsApi = new MoviesRequestsApi();
         displayedMovies = new ArrayList<>();
+
+        App.component.inject(this);
+
+
     }
 
     @Override
