@@ -25,8 +25,8 @@ public class MoviesRequestsApi implements IMoviesRequestsApi{
     public static final String API_KEY = "d9b919d2a956a8db41c97f533abf5443";
 
     @Override
-    public Observable<MovieResults> getMoviesByPopularity(int index) {
-        return endPoints.getMoviesByPopularity(API_KEY, Locale.getDefault().getDisplayLanguage(),index);
+    public Observable<MovieResults> getMoviesByMinRate(int index, int minVoteAverage) {
+        return endPoints.getMoviesByPopularity(API_KEY, Locale.getDefault().getDisplayLanguage(), index, minVoteAverage);
     }
 
     @Override
@@ -51,8 +51,8 @@ public class MoviesRequestsApi implements IMoviesRequestsApi{
 
     public interface EndPoints {
 
-        @GET("movie/popular")
-        Observable<MovieResults> getMoviesByPopularity(@Query("api_key") String key, @Query("language") String language, @Query("page") int page);
+        @GET("discover/movie")
+        Observable<MovieResults> getMoviesByPopularity(@Query("api_key") String key, @Query("language") String language, @Query("page") int page, @Query("vote_average.gte") int minVoteAverage);
 
         @GET("search/movie")
         Observable<MovieResults> getMoviesByName(@Query("api_key") String key, @Query("query") String query);

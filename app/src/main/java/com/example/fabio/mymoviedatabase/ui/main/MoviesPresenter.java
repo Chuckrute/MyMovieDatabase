@@ -1,8 +1,10 @@
 package com.example.fabio.mymoviedatabase.ui.main;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.fabio.mymoviedatabase.App;
+import com.example.fabio.mymoviedatabase.apis.IDatabaseAPI;
 import com.example.fabio.mymoviedatabase.apis.IMoviesRequestsApi;
 import com.example.fabio.mymoviedatabase.data.Movie;
 import com.example.fabio.mymoviedatabase.data.MovieResults;
@@ -13,6 +15,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.realm.Realm;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -26,26 +29,25 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
 
     private MoviesContract.view view;
     @Inject public IMoviesRequestsApi mRequestsApi;
+    @Inject public IDatabaseAPI mDatabaseAPI;
     private Subscription subscription;
     private List<Movie> displayedMovies;
+    private int minRate = 5;
 
     public MoviesPresenter(MoviesContract.view view) {
         this.view = view;
         displayedMovies = new ArrayList<>();
-
         App.component.inject(this);
 
 
     }
 
     @Override
-    public void findMoviesByPopularity(final int index) {
-        Log.w("Loading:","All movies page: "+index);
+    public void findMoviesByMinRate(final int index) {
         subscription = mRequestsApi
-        .getMoviesByPopularity(index)
+        .getMoviesByMinRate(index, minRate)
         .subscribeOn(Schedulers.computation())
         .observeOn(AndroidSchedulers.mainThread())
-        .unsubscribeOn(Schedulers.io())
         .subscribe(
             new Subscriber<MovieResults>() {
                 @Override
@@ -54,6 +56,7 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
                 }
                 @Override
                 public void onError(Throwable e) {
+                    Log.e("Retrofit error: ",e.getLocalizedMessage());
                     if(e instanceof IOException){
                         view.makeFailureDialogBox();
                     }
@@ -81,7 +84,7 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
         }
 
         if(movieName.isEmpty()){
-            findMoviesByPopularity(index);
+            findMoviesByMinRate(index);
             return;
         }
         Log.w("Loading:","Movies with text: "+movieName+" page: "+index);
@@ -89,7 +92,6 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
         .getMoviesByName(movieName, index)
         .subscribeOn(Schedulers.computation())
         .observeOn(AndroidSchedulers.mainThread())
-        .unsubscribeOn(Schedulers.io())
         .subscribe(
                 new Subscriber<MovieResults>() {
                     @Override

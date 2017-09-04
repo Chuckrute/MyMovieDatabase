@@ -18,7 +18,7 @@ public interface MoviesContract {
     }
 
     interface UserActionsListener{
-        void findMoviesByPopularity(int index);
+        void findMoviesByMinRate(int index);
         void findMoviesByKeyword(String movieName, int index);
     }
 }

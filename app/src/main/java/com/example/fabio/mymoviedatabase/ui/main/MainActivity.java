@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
                 mPresenter.findMoviesByKeyword(s.toString(), listPage);
             }
         });
-        mPresenter.findMoviesByPopularity(1);
+        mPresenter.findMoviesByMinRate(1);
     }
 
     @Override

@@ -2,8 +2,12 @@ package com.example.fabio.mymoviedatabase.dagger;
 
 import android.content.Context;
 
+import com.example.fabio.mymoviedatabase.apis.DatabaseAPI;
+import com.example.fabio.mymoviedatabase.apis.IDatabaseAPI;
 import com.example.fabio.mymoviedatabase.apis.IMoviesRequestsApi;
 import com.example.fabio.mymoviedatabase.apis.MoviesRequestsApi;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -24,6 +28,18 @@ public class AppModule {
     @Provides
     public IMoviesRequestsApi providesMovieRequestApi() {
         return new MoviesRequestsApi();
+    }
+
+    @Provides
+    @Singleton
+    public IDatabaseAPI providesDatabaseAPI() {
+        return new DatabaseAPI();
+    }
+
+    @Provides
+    @Singleton
+    public Context provideContext() {
+        return mContext;
     }
 
 

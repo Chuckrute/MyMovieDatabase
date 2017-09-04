@@ -5,11 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import io.realm.RealmObject;
+
 /**
  * Created by EUROCOM on 31/08/2017.
  */
 
-public class MovieResults {
+public class MovieResults extends RealmObject {
 
     @SerializedName("page")
     @Expose

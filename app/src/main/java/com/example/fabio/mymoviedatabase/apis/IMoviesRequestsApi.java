@@ -10,7 +10,7 @@ import rx.Observable;
 
 public interface IMoviesRequestsApi {
 
-    public Observable<MovieResults> getMoviesByPopularity(int index);
+    public Observable<MovieResults> getMoviesByMinRate(int index, int minVoteAverage);
 
     Observable<MovieResults> getMoviesByName(String name, int index);
 }
