@@ -12,9 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by EUROCOM on 29/08/2017.
@@ -114,8 +112,6 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
 
         subscription = mRequestsApi
         .getMoviesByMinRate(index, minRate)
-        .subscribeOn(Schedulers.computation())
-        .observeOn(AndroidSchedulers.mainThread())
         .subscribe(onSuccess,onError);
     }
 
@@ -131,8 +127,6 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
         }
         subscription = mRequestsApi
         .getMoviesByName(movieName, index)
-        .subscribeOn(Schedulers.computation())
-        .observeOn(AndroidSchedulers.mainThread())
         .subscribe(onSuccess,onError);
 
     }

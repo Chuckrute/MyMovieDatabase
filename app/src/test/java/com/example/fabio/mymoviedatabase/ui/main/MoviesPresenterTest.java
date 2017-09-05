@@ -56,4 +56,11 @@ public class MoviesPresenterTest {
         verify(view).showMovieList(result.getResults());
 
     }
+
+    @Test
+    public void findMoviesByMinRate() throws Exception{
+        mPresenter.findMoviesByMinRate(1);
+        verify(mRequestsApi).getMoviesByMinRate(1,5);
+        verify(view).hideLoadingDialog();
+    }
 }

@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
@@ -26,12 +27,16 @@ public class MoviesRequestsApi implements IMoviesRequestsApi{
 
     @Override
     public Observable<MovieResults> getMoviesByMinRate(int index, int minVoteAverage) {
-        return endPoints.getMoviesByPopularity(API_KEY, Locale.getDefault().getDisplayLanguage(), index, minVoteAverage);
+        return endPoints.getMoviesByPopularity(API_KEY, Locale.getDefault().getDisplayLanguage(), index, minVoteAverage)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
     public Observable<MovieResults> getMoviesByName(String name, int index) {
-        return endPoints.getMoviesByName(API_KEY, name);
+        return endPoints.getMoviesByName(API_KEY, name)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     public MoviesRequestsApi(){
