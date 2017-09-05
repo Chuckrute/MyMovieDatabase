@@ -33,7 +33,7 @@ public class AppModule {
     @Provides
     @Singleton
     public IDatabaseAPI providesDatabaseAPI() {
-        return new DatabaseAPI();
+        return new DatabaseAPI(mContext);
     }
 
     @Provides

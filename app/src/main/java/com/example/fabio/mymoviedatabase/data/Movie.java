@@ -8,7 +8,10 @@ package com.example.fabio.mymoviedatabase.data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Movie {
+import io.realm.Realm;
+import io.realm.RealmObject;
+
+public class Movie extends RealmObject {
 
     @SerializedName("adult")
     @Expose
@@ -16,9 +19,9 @@ public class Movie {
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
-    @SerializedName("belongs_to_collection")
-    @Expose
-    private Object belongsToCollection;
+//    @SerializedName("belongs_to_collection")
+//    @Expose
+//    private Object belongsToCollection;
     @SerializedName("budget")
     @Expose
     private Integer budget;
@@ -102,13 +105,13 @@ public class Movie {
         this.backdropPath = backdropPath;
     }
 
-    public Object getBelongsToCollection() {
-        return belongsToCollection;
-    }
+//    public Object getBelongsToCollection() {
+//        return belongsToCollection;
+//    }
 
-    public void setBelongsToCollection(Object belongsToCollection) {
-        this.belongsToCollection = belongsToCollection;
-    }
+//    public void setBelongsToCollection(Object belongsToCollection) {
+//        this.belongsToCollection = belongsToCollection;
+//    }
 
     public Integer getBudget() {
         return budget;

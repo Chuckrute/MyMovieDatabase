@@ -1,5 +1,6 @@
 package com.example.fabio.mymoviedatabase.ui.main;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
     private LinearLayoutManager mLayoutManager;
     private int listPage = 1;
     private boolean isLoading = false;
+    private boolean orientationChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,8 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
                 mPresenter.findMoviesByKeyword(s.toString(), listPage);
             }
         });
-        mPresenter.findMoviesByMinRate(1);
+        mPresenter.loadDatabase(orientationChanged);
+        orientationChanged = false;
     }
 
     @Override
@@ -93,5 +96,22 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
                 }
             }
         });
+    }
+
+    @Override
+    public void startLoadingMovies() {
+        mPresenter.findMoviesByMinRate(1);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.closeDatabase();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        orientationChanged = true;
     }
 }

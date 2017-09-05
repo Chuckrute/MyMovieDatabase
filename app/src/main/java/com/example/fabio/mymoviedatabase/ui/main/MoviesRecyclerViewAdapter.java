@@ -18,12 +18,15 @@ import com.squareup.picasso.Target;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by EUROCOM on 29/08/2017.
  */
 
 public class MoviesRecyclerViewAdapter extends RecyclerView.Adapter<MoviesRecyclerViewAdapter.ViewHolder> {
 
+    @Inject MoviesPresenter mPresenter;
     private List<Movie> movies;
     Context ctx;
     private HashMap<Integer,Target> targetImages;

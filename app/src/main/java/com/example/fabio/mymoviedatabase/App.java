@@ -5,8 +5,6 @@ import android.app.Application;
 import com.example.fabio.mymoviedatabase.dagger.AppComponent;
 import com.example.fabio.mymoviedatabase.dagger.AppModule;
 import com.example.fabio.mymoviedatabase.dagger.DaggerAppComponent;
-
-import io.realm.Realm;
 //import com.example.fabio.mymoviedatabase.dagger.DaggerAppComponent;
 
 
@@ -24,7 +22,7 @@ public class App extends Application {
 
 
         component = createComponent();
-        Realm.init(this);
+
     }
 
     protected AppComponent createComponent() {
@@ -32,4 +30,5 @@ public class App extends Application {
                 .appModule(new AppModule(getBaseContext()))
                 .build();
     }
+
 }

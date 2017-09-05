@@ -12,13 +12,19 @@ public interface MoviesContract {
 
     interface view{
         void showMovieList(List<Movie> movies);
-        public void makeFailureDialogBox();
-
+        void makeFailureDialogBox();
         void makeFailureToast();
+        void showLoadingDialog();
+        void hideLoadingDialog();
+
+        void startLoadingMovies();
     }
 
     interface UserActionsListener{
-        void findMoviesByMinRate(int index);
+        public void loadDatabase(boolean orientationChanged);
+        void findMoviesByMinRate(final int index);
         void findMoviesByKeyword(String movieName, int index);
+
+        void closeDatabase();
     }
 }

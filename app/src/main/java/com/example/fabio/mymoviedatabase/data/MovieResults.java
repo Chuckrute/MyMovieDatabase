@@ -5,14 +5,17 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by EUROCOM on 31/08/2017.
  */
 
 public class MovieResults extends RealmObject {
-
+    @PrimaryKey
+    public String realmID = "REALM_ID";
     @SerializedName("page")
     @Expose
     private Integer page;
@@ -25,7 +28,7 @@ public class MovieResults extends RealmObject {
 
     @SerializedName("results")
     @Expose
-    private List<Movie> results = null;
+    private RealmList<Movie> results = null;
 
 
     public Integer getPage() {
@@ -56,7 +59,7 @@ public class MovieResults extends RealmObject {
         return results;
     }
 
-    public void setResults(List<Movie> results) {
+    public void setResults(RealmList<Movie> results) {
         this.results = results;
     }
 }

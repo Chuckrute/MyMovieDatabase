@@ -13,4 +13,5 @@ public interface IMoviesRequestsApi {
     public Observable<MovieResults> getMoviesByMinRate(int index, int minVoteAverage);
 
     Observable<MovieResults> getMoviesByName(String name, int index);
+
 }

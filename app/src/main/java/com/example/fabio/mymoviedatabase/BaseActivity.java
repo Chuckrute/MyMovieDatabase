@@ -24,7 +24,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ctx = this;
     }
 
@@ -71,7 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void hideLoadingDialog() {
 
-        if(dialog.isShowing())
+        if(dialog != null && dialog.isShowing())
         {
             dialog.hide();
         }
@@ -93,5 +92,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void makeFailureToast() {
         Toast.makeText(this,getText(R.string.noConectivity),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
     }
 }
