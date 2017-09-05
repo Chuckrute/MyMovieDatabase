@@ -16,8 +16,6 @@ public interface MoviesContract {
         void makeFailureToast();
         void showLoadingDialog();
         void hideLoadingDialog();
-
-        void startLoadingMovies();
     }
 
     interface UserActionsListener{

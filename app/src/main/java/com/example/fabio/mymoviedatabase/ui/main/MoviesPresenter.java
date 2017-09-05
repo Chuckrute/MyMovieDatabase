@@ -35,7 +35,6 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
         this.view = view;
         displayedMovies = new ArrayList<>();
         App.component.inject(this);
-
         onSuccess = movies -> {
             view.hideLoadingDialog();
             mDatabaseAPI.updateDatabase(movies);
@@ -83,7 +82,7 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
 
         if(movies==null){
             view.showLoadingDialog();
-            view.startLoadingMovies();
+            findMoviesByMinRate(1);
             return;
         }
 
@@ -96,7 +95,7 @@ public class MoviesPresenter implements MoviesContract.UserActionsListener{
             view.showMovieList(displayedMovies);
         }
         if(!orientationChanged) {
-            view.startLoadingMovies();
+            findMoviesByMinRate(1);
         } else{
             view.showMovieList(displayedMovies);
         }

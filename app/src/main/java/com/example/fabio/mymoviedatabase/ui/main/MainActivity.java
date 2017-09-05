@@ -2,6 +2,9 @@ package com.example.fabio.mymoviedatabase.ui.main;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -14,10 +17,12 @@ import com.example.fabio.mymoviedatabase.BaseActivity;
 import com.example.fabio.mymoviedatabase.R;
 import com.example.fabio.mymoviedatabase.data.Movie;
 import com.example.fabio.mymoviedatabase.ui.main.di.MoviesModule;
+import com.example.fabio.mymoviedatabase.util.SimpleIdlingResource;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity implements MoviesContract.view{
@@ -25,13 +30,15 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
     @Inject
     MoviesContract.UserActionsListener mPresenter;
 
-    private MoviesRecyclerViewAdapter adapter;
-    private RecyclerView rvMovies;
+    public MoviesRecyclerViewAdapter adapter;
+    public RecyclerView rvMovies;
     private EditText etMovieName;
     private LinearLayoutManager mLayoutManager;
     private int listPage = 1;
     private boolean isLoading = false;
     private boolean orientationChanged = false;
+    @Nullable
+    private SimpleIdlingResource mIdlingResource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +74,15 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
             @Override
             public void afterTextChanged(Editable s) {
                 listPage = 1;
+                if (mIdlingResource != null) {
+                    mIdlingResource.setIdleState(false);
+                }
                 mPresenter.findMoviesByKeyword(s.toString(), listPage);
             }
         });
+        if (mIdlingResource != null) {
+            mIdlingResource.setIdleState(false);
+        }
         mPresenter.loadDatabase(orientationChanged);
         orientationChanged = false;
     }
@@ -91,16 +104,16 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
                 if (pastVisibleItems + visibleItemCount >= totalItemCount) {
                     isLoading = true;
                     listPage++;
+                    if (mIdlingResource != null) {
+                        mIdlingResource.setIdleState(false);
+                    }
                     mPresenter.findMoviesByKeyword(etMovieName.getText().toString(), listPage);
-
                 }
             }
         });
-    }
-
-    @Override
-    public void startLoadingMovies() {
-        mPresenter.findMoviesByMinRate(1);
+        if (mIdlingResource != null) {
+            mIdlingResource.setIdleState(true);
+        }
     }
 
     @Override
@@ -113,5 +126,14 @@ public class MainActivity extends BaseActivity implements MoviesContract.view{
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         orientationChanged = true;
+    }
+
+    @VisibleForTesting
+    @NonNull
+    public IdlingResource getIdlingResource() {
+        if (mIdlingResource == null) {
+            mIdlingResource = new SimpleIdlingResource();
+        }
+        return mIdlingResource;
     }
 }

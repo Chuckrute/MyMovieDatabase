@@ -1,7 +1,5 @@
 package com.example.fabio.mymoviedatabase;
 
-//import com.example.fabio.mymoviedatabase.dagger.DaggerTestApplicationComponent;
-
 import com.example.fabio.mymoviedatabase.dagger.DaggerTestApplicationComponent;
 import com.example.fabio.mymoviedatabase.dagger.TestApplicationComponent;
 import com.example.fabio.mymoviedatabase.dagger.TestModule;
